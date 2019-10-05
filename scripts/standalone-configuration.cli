@@ -1,6 +1,3 @@
 embed-server --server-config=standalone.xml --std-out=echo
-run-batch --file=/opt/jboss/tools/cli/loglevel.cli
-run-batch --file=/opt/jboss/tools/cli/proxy.cli
-run-batch --file=/opt/jboss/tools/cli/hostname.cli
-run-batch --file=/opt/jboss/tools/cli/theme.cli
+run-batch --file=/wildfly/custom-scripts/configure.cli
 stop-embedded-server
