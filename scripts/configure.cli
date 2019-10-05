@@ -1,0 +1,4 @@
+/system-property=com.sun.jndi.ldap.object.disableEndpointIdentification:add(value=true)
+/system-property=http.proxyPort:add(value=3128) 
+/system-property=http.proxyHost:add(value=cntlm.paas.eclair.local) 
+/system-property=https.proxyPort:add(value=3128) 
