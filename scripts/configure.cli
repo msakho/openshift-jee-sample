@@ -1,7 +1,5 @@
 /subsystem=jgroups/channel=ee:write-attribute(name=stack,value=tcp) 
 /subsystem=jgroups/stack=tcp/protocol=MPING:remove()
 /subsystem=jgroups/stack=tcp/protocol=kubernetes.KUBE_PING:add(properties={namespace="bms",labels="app=demo-latest"})    
-/subsystem=jgroups/stack=tcp/protocol=kubernetes.KUBE_PING:add(properties={namespace="${KUBERNETES_NAMESPACE:bms}",labels="${KUBERNETES_LABEL:app=demo-latest}"})  
 /interface=kubernetes:add(nic=eth0)  
 /socket-binding-group=standard-sockets/socket-binding=jgroups-tcp/:write-attribute(name=interface,value=kubernetes)  
-/socket-binding-group=standard-sockets/socket-binding=jgroups-tcp-fd/:write-attribute(name=interface,value=kubernetes)  
