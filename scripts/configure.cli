@@ -3,3 +3,9 @@
 /subsystem=jgroups/stack=tcp/protocol=kubernetes.KUBE_PING:add(properties={namespace="bms",labels="app=demo-latest"})    
 /interface=kubernetes:add(nic=eth0)  
 /socket-binding-group=standard-sockets/socket-binding=jgroups-tcp/:write-attribute(name=interface,value=kubernetes)  
+
+/subsystem=datasources/jdbc-driver=oracle:add(driver-name=oracle,driver-module-name=com.oracle,driver-xa-datasource-class-name=oracle.jdbc.xa.client.OracleXADataSource)
+xa-data-source add --name=OracleXADS --jndi-name=java:jboss/OracleXADS --driver-name=oracle --user-name=admin --password=admin --validate-on-match=true --background-validation=false --valid-connection-checker-class-name=org.jboss.jca.adapters.jdbc.extensions.oracle.OracleValidConnectionChecker --exception-sorter-class-name=org.jboss.jca.adapters.jdbc.extensions.oracle.OracleExceptionSorter --same-rm-override=false --xa-datasource-properties={"URL"=>"jdbc:oracle:thin:@oracleHostName:1521:orcl"}
+/subsystem=datasources/xa-data-source=OracleXADS:write-attribute(name=max-pool-size,value=100)
+/subsystem=datasources/xa-data-source=OracleXADS:write-attribute(name=min-pool-size,value=50)
+/subsystem=datasources/xa-data-source=OracleXADS:write-attribute(name=check-valid-connection-sql,value=select 1 from DUAL)
