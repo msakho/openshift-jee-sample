@@ -1,3 +1,7 @@
+
+/subsystem=logging/logger=org.jgroups.protocols:add
+/subsystem=logging/logger=org.jgroups.protocols:write-attribute(name=level,value=FINE)
+
 /subsystem=jgroups/channel=ee:write-attribute(name=stack,value=tcp) 
 /subsystem=jgroups/stack=tcp/protocol=MPING:remove()
 /subsystem=jgroups/stack=tcp/protocol=kubernetes.KUBE_PING:add(properties={namespace="bms",labels="app=demo-latest"})    
